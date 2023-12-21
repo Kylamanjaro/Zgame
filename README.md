@@ -2,45 +2,45 @@
 Gameplay:
 
 - Starting the game:
-+ You start in safe room w/ broken portal gun and some money?
-* Locker storage
-* Merchant - Could be randomized items
-* Crafting bench / Work station - Weapon mods, perks, etc.
-* Portal to new location - Starts the round
-+ Start in neutral location w/ broken portal gun
-* All enemies are visible but passive
-* Portal to new location - Starts the round
-+ Game Seed
-* Random between all players
-* Same seed for all players
+    + You start in safe room w/ broken portal gun and some money?
+        * Locker storage
+        * Merchant - Could be randomized items
+        * Crafting bench / Work station - Weapon mods, perks, etc.
+        * Portal to new location - Starts the round
+    + Start in neutral location w/ broken portal gun
+        * All enemies are visible but passive
+        * Portal to new location - Starts the round
+    + Game Seed
+        * Random between all players
+        * Same seed for all players
 
 - Gameplay:
-+ Player walks through portal and spawns in a random environment.
-* Environment randomization is the same for each player but each player may
-exists in an alternate dimension of the same stage
-* Enemy, loot, etc. may be randomized between players if randomized seed was
-the game option
-* Spawning after entering a portal:
-1. Spawn with teammate
-2. Spawn with member of another team
-3. Spawn with everyone in the same location
-+ Charging the portal gun on each stage:
-* Kill a certain enemy type?
-* Complete some tasks? 
-+ Farming:
-* Enemies drop money that can be collected (Geometry Wars green crystals)
-* Care packages drop with loot or chest spawn on map?
-* Enemies drop special items?
-+ Portal Jumping:
-* Players can jump forward to progress towards boss
-* Players can jump laterally to invade adjacent world
-* Enemy portals cannot be shared but team portals can (Otherwise invasion would
-be the priority)
+    + Player walks through portal and spawns in a random environment.
+        * Environment randomization is the same for each player but each player may
+        exists in an alternate dimension of the same stage
+        * Enemy, loot, etc. may be randomized between players if randomized seed was
+        the game option
+        * Spawning after entering a portal:
+            1. Spawn with teammate
+            2. Spawn with member of another team
+            3. Spawn with everyone in the same location
+    + Charging the portal gun on each stage:
+        * Kill a certain enemy type?
+        * Complete some tasks? 
+    + Farming:
+        * Enemies drop money that can be collected (Geometry Wars green crystals)
+        * Care packages drop with loot or chest spawn on map?
+        * Enemies drop special items?
+    + Portal Jumping:
+        * Players can jump forward to progress towards boss
+        * Players can jump laterally to invade adjacent world
+        * Enemy portals cannot be shared but team portals can (Otherwise invasion would
+        be the priority)
 
 
 
 - Gameplay Map:
-
+```
                      #########
                      #       #
                      # START #
@@ -93,6 +93,7 @@ be the priority)
                      # START #
                      #       #
                      #########
+```
 
 
 - Objective:
@@ -108,8 +109,8 @@ with whatever loot the have obtained. The game win is granted to the first team
 to win X number of rounds or best of X.
  
 - Thoughts?
-+ Should boss fights be seperate between enemy Teams/Players?
-* Third party / Last hit issues...
+    + Should boss fights be seperate between enemy Teams/Players?
+        * Third party / Last hit issues...
 
 
 
