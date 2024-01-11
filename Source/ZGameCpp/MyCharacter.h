@@ -32,8 +32,9 @@ class ZGAMECPP_API AMyCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, Category = Input) UInputAction* MoveAction;
 	UPROPERTY(EditAnywhere, Category = Input) UInputAction* DodgeAction;
 	UPROPERTY(EditAnywhere, Category = Input) UInputAction* StrafeAction;
-	UPROPERTY(EditAnywhere, Category = Input) UInputAction* PrintAction;
-	UPROPERTY(EditAnywhere, Category = Input) UInputAction* RotateCameraAction;
+	UPROPERTY(EditAnywhere, Category = Input) UInputAction* PrintAction; // For printing debug stuff to play screen
+	UPROPERTY(EditAnywhere, Category = Input) UInputAction* JumpAction;
+	UPROPERTY(EditAnywhere, Category = Input) UInputAction* RotateCameraAction; // Experimental, rotates camera behind player
 
 
 public:
@@ -44,27 +45,57 @@ public:
 	UAnimMontage* m_pDodgeForwardMontage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
 	UAnimMontage* m_pDodgeBackwardMontage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
+	UAnimMontage* m_pJumpMontage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
+	UAnimMontage* m_pJumpDownMontage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
+	UAnimMontage* m_pRunningJumpMontage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
+	UAnimMontage* m_pRunningJumpDownMontage;
 
-	// Enter Strafe Montages
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
-	UAnimMontage* m_pRunTurnLeftMontage;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
-	UAnimMontage* m_pWalkTurnLeftMontage;
+	// Enter Strafe Montages NOT USED ATM
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
+	//UAnimMontage* m_pRunTurnLeftMontage;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation");
+	//UAnimMontage* m_pWalkTurnLeftMontage;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Lock On Camera")
 	float LockonControlRotationRate;;
+	float CapsuleHalfHeight;
 
 
 protected:
+	FVector2D MovementVector;
+	FVector2D OldMovementVector;
 	void Move(const FInputActionValue& Value);
 	void Dodge();
+	
+	// Experimental 
 	void Print();
 	void RotateCamera();
 	FRotator CameraAngle = FRotator(0.f, 0.f, 0.f);
 
+	// Set Object Transparent between camera and player
+	FVector CameraLocation;
+	FVector PlayerLocation;
+	float PlayerRadius;
+	void SetObjectTranslucent(FVector& Start, FVector& End);
+	TArray<AActor*> OldActors;
+	TArray<UMaterialInterface*> OldMaterials;
+	// Material that all objects betwen Player and Camera are set to, assigned in Player Blueprint
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Materials) UMaterial* TranslucentMaterial;
+
+	// Override ACharacter class jump function to block specific inputs
+	void StartJumping();
+	void Jump() override;
+	bool bIsJumping;
+	bool bIsLanding;
+	bool bIsRunJump;
+	void OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PrevCustomMode) override;
+
 	void StartStrafe();
 	void EndStrafe();
-	bool bIsStrafing = false;
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	virtual void BeginPlay() override;

@@ -7,7 +7,7 @@ DEFINE_LOG_CATEGORY(LogCharacterMovement);
 UAMyCharacterMovement::UAMyCharacterMovement()
 {
 	RotationRate = FRotator(0.f, 3072.f, 0.f);
-	AirControl = 1.f;
+	AirControl = 0.5f;
 	Mass = 500.f;
 	JumpZVelocity = 1450.f;
 	MaxWalkSpeed = 600.f;
