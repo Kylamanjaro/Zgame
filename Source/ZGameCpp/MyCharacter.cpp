@@ -247,7 +247,11 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void AMyCharacter::Move(const FInputActionValue& Value)
 {
-	if (bIsJumping)
+	if (bIsJumpStartUp)
+	{
+		MovementVector = FVector2D::ZeroVector;
+	}
+	else if (bIsJumping)
 	{
 		float projectionScalar = FVector2D::DotProduct(Value.Get<FVector2D>(), OldMovementVector) / FVector2D::DotProduct(OldMovementVector, OldMovementVector);
 		if (projectionScalar > 0)
@@ -317,7 +321,9 @@ void AMyCharacter::StartJumping()
 			{
 				OldMovementVector = MovementVector;
 				bIsRunJump = true;
+				bIsJumpStartUp = true;
 				pAnimInst->Montage_Play(m_pRunningJumpMontage);
+				//pAnimInst->Montage_Play(m_pJumpMontage);
 			} 
 			else
 			{
@@ -332,6 +338,7 @@ void AMyCharacter::StartJumping()
 
 void AMyCharacter::Jump()
 {
+	bIsJumpStartUp = false;
 	Super::Jump();
 }
 
@@ -346,6 +353,7 @@ void AMyCharacter::OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 P
 			if (bIsRunJump)
 			{
 				pAnimInst->Montage_Play(m_pRunningJumpDownMontage);
+				//pAnimInst->Montage_Play(m_pJumpDownMontage);
 			}
 			else
 			{

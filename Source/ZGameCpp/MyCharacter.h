@@ -89,6 +89,7 @@ protected:
 	// Override ACharacter class jump function to block specific inputs
 	void StartJumping();
 	void Jump() override;
+	bool bIsJumpStartUp;
 	bool bIsJumping;
 	bool bIsLanding;
 	bool bIsRunJump;
