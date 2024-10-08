@@ -142,5 +142,33 @@ number of rounds or best of X.
     * Enemy team in next PVP encounter could win and steal?
 
 
+### Weapon Ideas
+
++ Guns - Aim down sight (left stick) to get dual stick aiming. Cannot run while aiming. 
+    * Pistol
+    * Rocket Launcher
++ Melee - Can run and swing. Left stick to throw and aim weapon.
+    * Knife (starting weapon)
+    * Halo like energy sword (lunge)
+    * Bonk Sword
++ Shield
+    * Parry shield
++ Special
+    * Adrenaline Dart Gun - Can revive teammates
++ Grenades
+
+### Bosses
+
+### Enemies
++ Zombie
+    * Standard mob, slow but numerous, simple grab attack
+    * Flame variant, converts regular mob to flame variant
+    * Beekeeper, zombies, homing
+    * Elastic Zombie, long arms
+    * Charger, will down any player in one hit if grabbed, runs across screen but does not persist
+    * Hydra, splits it to multiple copies on hit
+     
+
+
 
 
